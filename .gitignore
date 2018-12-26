@@ -25,3 +25,10 @@ Icon
 Network Trash Folder
 Temporary Items
 .apdisk
+
+# App specific
+*.csv
+*.xml
+
+# Except
+!valid_header.xml
