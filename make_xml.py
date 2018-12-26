@@ -29,7 +29,7 @@ class Payment:
 def make_CdtTrfTxInf(payment):
 
     # ISO sier 140 characters, men SMN Melding linje 1 er MAKS 40 TEGN!
-    add_Ustrd = "Statsnail:" + month + ":#" + payment.pickings + ":pid" + payment.pid
+    add_Ustrd = "Statsnail:" + "#" + payment.pickings + ":pid" + payment.pid
     Nm = payment.firstname + " " + payment.surname
     Id = payment.bankaccount
     valueOf_ = str(payment.total_payout)
