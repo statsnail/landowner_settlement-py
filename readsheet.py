@@ -1,7 +1,5 @@
 #!/usr/bin/env python3
 
-
-
 import sys
 import csv
 import re
@@ -25,7 +23,7 @@ def app():
 
     with open(outputfile, 'w', newline='') as f:
         writer = csv.writer(f)
-        csv_header = 'pid','firstname','lastname','bankaccount', 'pickings', 'cost_per_session', 'total_payout' 
+        csv_header = 'pid','firstname','lastname','email','bankaccount', 'pickings', 'cost_per_session', 'total_payout' 
         writer.writerow(csv_header)
 
         year_payout = 0
@@ -58,6 +56,7 @@ def app():
                 pid = row['pid']
                 firstname1 = row['firstname1']
                 lastname1 = row['lastname1']
+                email1 = row['email1']
                 bankaccount = row['bankaccount']
 
                 try:
@@ -90,19 +89,19 @@ def app():
                     raise
 
                 if totalsessions == 0:
-                    line_new = '{:<3} {:<12} {:<20} {:<20} {:<12} {:>2}*{:>2} # NO HARVESTS'.format(row_index, pid, firstname1, lastname1, bankaccount, totalsessions, cost_per_session)
+                    line_new = '{:<3} {:<12} {:<20} {:<20} {:<30} {:<12} {:>2}*{:>2} # NO HARVESTS'.format(row_index, pid, firstname1, lastname1, email1, bankaccount, totalsessions, cost_per_session)
                     print(line_new)
                 else:
                     if bankaccount == '':
-                        line_new = '{:<3} {:<12} {:<20} {:<20} {:<12} {:>2}*{:>2} # BANK ACCOUNT MISSING'.format(row_index, pid, firstname1, lastname1, bankaccount, totalsessions, cost_per_session)
+                        line_new = '{:<3} {:<12} {:<20} {:<20} {:<30} {:<12} {:>2}*{:>2} # BANK ACCOUNT MISSING'.format(row_index, pid, firstname1, lastname1, email1, bankaccount, totalsessions, cost_per_session)
                         print(line_new)
                         #print(row_index, pid, firstname1, lastname1, bankaccount, totalsessions, cost_per_session)
                         year_sessions = year_sessions+totalsessions
                         year_payout = year_payout + (totalsessions*cost_per_session)
                     else:
-                        line_new = '{:<3} {:<12} {:<20} {:<20} {:<12} {:>2}*{:>2}'.format(row_index, pid, firstname1, lastname1, bankaccount, totalsessions, cost_per_session)
+                        line_new = '{:<3} {:<12} {:<20} {:<20} {:<30} {:<12} {:>2}*{:>2}'.format(row_index, pid, firstname1, lastname1, email1, bankaccount, totalsessions, cost_per_session)
                         print(line_new)
-                        rowtext = pid, firstname1, lastname1, bankaccount, totalsessions, cost_per_session, totalsessions*cost_per_session
+                        rowtext = pid, firstname1, lastname1, email1, bankaccount, totalsessions, cost_per_session, totalsessions*cost_per_session
                         writer.writerow(rowtext)
 
                         year_sessions = year_sessions+totalsessions
