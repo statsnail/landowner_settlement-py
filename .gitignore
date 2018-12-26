@@ -29,6 +29,8 @@ Temporary Items
 # App specific
 *.csv
 *.xml
+sign_200x41.png
+*.pdf
 
 # Except
 !valid_header.xml
