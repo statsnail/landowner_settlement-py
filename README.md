@@ -22,3 +22,9 @@ Step 5: Verify and authorize payment
 Step 6: Generate PDF for payments using makeallbilag.py with input output.csv
 
 Step 7: Send all marked "letter" as physical letter, send all marked "email" as email, using another program maybe
+
+TL;DR:
+
+python3 readsheet.py
+python3 make_xml.py
+python3 makeallbilag.py
